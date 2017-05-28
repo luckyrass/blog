@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+
+    <!-- 设置数据库驱动路径 -->
+    <classPathEntry
+            location="D:\develop\maven\repository\mysql\mysql-connector-java\5.1.34\mysql-connector-java-5.1.34.jar"/>
+
+    <!-- 此处指定生成针对MyBatis3的DAO -->
+    <context id="context" targetRuntime="MyBatis3">
+        <!--<plugin type="org.jtang.emm.mybatis.plugin.PaginationPlugin"/>-->
+        <!--<plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>-->
+        <!-- jdbc连接信息 -->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/website" userId="root"
+                        password="jdan"/>
+
+        <!--  生成模型的包名和位置 -->
+        <javaModelGenerator targetPackage="me.jdan.po"
+                            targetProject="E:\web\src\main\java" />
+
+        <!-- 生成映射文件的包名和位置 -->
+        <sqlMapGenerator targetPackage="mapper"
+            targetProject="E:\web\src\main\resources" />
+
+        <!-- 生成DAO的包名和位置 -->
+        <javaClientGenerator targetPackage="me.jdan.dao"
+            targetProject="E:\web\src\main\java" type="XMLMAPPER" />
+        <!-- 想要生成的数据库表,自动化工具会根据该表的结构生成相应的po对象 -->
+        <!-- 要生成的表 tableName是数据库中的表名或视图名 domainObjectName是实体类名-->
+        <table tableName="user" domainObjectName="User" />
+        <table tableName="news" domainObjectName="News" />
+        <table tableName="newscategory" domainObjectName="Newscategory" />
+
+    </context>
+</generatorConfiguration>
