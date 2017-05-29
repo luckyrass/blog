@@ -10,6 +10,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>--%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt_rt" %>
+<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <html>
 <head>
     <title>${categoryName}</title>
@@ -39,7 +40,9 @@
         <aside class="right">
             <div class="rnav">
                 <ul>
-                    <li class="rnav1"><a href="<c:url value="/detailLife?type=diary" />">日记</a></li>
+                    <shiro:authenticated>
+                        <li class="rnav1"><a href="<c:url value="/detailLife?type=diary" />">日记</a></li>
+                    </shiro:authenticated>
                     <li class="rnav2"><a href="<c:url value="/detailLife?type=book" />">读书</a></li>
                     <li class="rnav3"><a href="<c:url value="/detailLife?type=programLife" />">程序人生</a></li>
                     <li class="rnav4"><a href="<c:url value="/detailLife?type=quotation" />">经典语录</a></li>

@@ -10,6 +10,8 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>--%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt_rt" %>
+
+<%@taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <html>
 <head>
     <title>首页</title>
@@ -18,6 +20,9 @@
 <body>
     <%@include file="header.jsp"%>
     <link href="<c:url value="/resources/css/index.css" />" rel="stylesheet">
+    <shiro:authenticated>
+        用户[<shiro:principal/>]已身份验证通过
+    </shiro:authenticated>
     <div class="banner">
         <section class="box">
             <ul class="texts">
@@ -26,17 +31,16 @@
                 <p>所谓热血的少年，青涩的爱恋，死亡与梦之约。</p>
             </ul>
             <div class="avatar">
-                <c:set var="username" scope="session" value="${username}"/>
-                <c:if test="${username == null}">
+                <shiro:authenticated>
+                    <a href="#"/>
+                        <span><shiro:principal/></span>
+                    </a>
+                </shiro:authenticated>
+                <shiro:guest>
                     <a href="<c:url value="/user/login"/> ">
                         <span>Login</span>
                     </a>
-                </c:if>
-                <c:if test="${username != null}">
-                    <a href="#"/>
-                        <span>${username}</span>
-                    </a>
-                </c:if>
+                </shiro:guest>
             </div>
         </section>
     </div>

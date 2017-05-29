@@ -34,10 +34,10 @@ public class BlogController {
     @RequestMapping("/index")
     public String index(Model model) {
         Subject subject = SecurityUtils.getSubject();
-        String username = null;
+//        String username = null;
         List<ShortNews> shortNewses;
         if (subject.isAuthenticated()) {
-            username = (String) subject.getPrincipal();
+//            username = (String) subject.getPrincipal();
             System.out.println("yes isAuthenticated");
             shortNewses = newsService.selectAllShortNews();
         }else {
@@ -53,7 +53,7 @@ public class BlogController {
         }
         model.addAttribute("newsList", shortNewses);
         model.addAttribute("recentNewsList", recentNews);
-        model.addAttribute("username", username);
+//        model.addAttribute("username", username);
         return "homepage";
     }
 
