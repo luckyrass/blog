@@ -25,7 +25,19 @@
                 <p>火苗再小，你都要反复的点燃。</p>
                 <p>所谓热血的少年，青涩的爱恋，死亡与梦之约。</p>
             </ul>
-            <div class="avatar"><a href="#"><span>jdan</span></a> </div>
+            <div class="avatar">
+                <c:set var="username" scope="session" value="${username}"/>
+                <c:if test="${username == null}">
+                    <a href="<c:url value="/user/login"/> ">
+                        <span>Login</span>
+                    </a>
+                </c:if>
+                <c:if test="${username != null}">
+                    <a href="#"/>
+                        <span>${username}</span>
+                    </a>
+                </c:if>
+            </div>
         </section>
     </div>
     <article>

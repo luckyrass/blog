@@ -181,8 +181,8 @@ opacity:1;
 }
 .avatar { float: right; margin: 40px; width: 130px; height: 130px; border-radius: 100%; overflow: hidden; border: #FFF 4px solid }
 .avatar a { display: block; padding-top: 97px; width: 160px; background: url(../img/photos.png) no-repeat; background-size: 130px 130px }
-.avatar a span { display: block; margin-top: 63px; padding-top: 8px; width: 130px; height: 55px; text-align: center; line-height: 20px; color: #fff; background: rgba(0, 0, 0, .5); -webkit-transition: margin-top .2s ease-in-out; -moz-transition: margin-top .2s ease-in-out; -o-transition: margin-top .2s ease-in-out; transition: margin-top .2s ease-in-out; }
-.avatar a:hover span { display: block; margin-top: 0; }
+.avatar a span { display: block; margin-top: 0px; padding-top: 8px; width: 130px; height: 55px; text-align: center; line-height: 20px; color: #fff; background: rgba(0, 0, 0, .5); -webkit-transition: margin-top .2s ease-in-out; -moz-transition: margin-top .2s ease-in-out; -o-transition: margin-top .2s ease-in-out; transition: margin-top .2s ease-in-out; }
+/*.avatar a:hover span { display: block; margin-top: 0; } margin-top: 63px */
 .template { background: #F1F0EE }
 .template h3 { border-bottom: #FFF 1px solid; width: 100%; overflow: hidden; font-size: 14px; margin: 0 0 10px; font-family: Microsoft YaHei; display: block; clear: both; }
 .template h3 p { background: #474645; width: 180px; height: 25px; margin: 15px 0 0 10px; line-height: 25px; color: #fff; text-align: center; box-shadow: #999 4px 5px 1px; }
@@ -204,7 +204,7 @@ h2.title_tj p { background: #fff; width: 90px }
 .dateview span { margin: 0 10px; }
 .dateview span a { color: #099B43; }
 a.readmore { background: #fd8a61; color: #fff; padding: 5px 10px; float: right; margin: 20px 0 0 0 }
-.weather { background: url(../img/weather_bg.jpg) no-repeat; height: 88px; margin: 20px 0;padding: 20px 0 0 75px; z-index: 10;}
+.weather { background: url(../img/weather_bg.jpg) no-repeat; height: 88px; margin: 20px 0;padding: 20px 0 0 66px; z-index: 10;}
 .news h3 { font-size: 14px; background: url(../img/r_title_bg.jpg) repeat-x center }
 .news h3 p { background: #fff; width: 70px }
 .news h3 span { color: #65b020 }

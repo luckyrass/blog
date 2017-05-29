@@ -5,6 +5,8 @@ import me.jdan.po.Newscategory;
 import me.jdan.po.ShortNews;
 import me.jdan.service.NewsCategoryService;
 import me.jdan.service.NewsService;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.subject.Subject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -31,7 +33,17 @@ public class BlogController {
 
     @RequestMapping("/index")
     public String index(Model model) {
-        List<ShortNews> shortNewses = newsService.selectAllPublicShortNews();
+        Subject subject = SecurityUtils.getSubject();
+        String username = null;
+        List<ShortNews> shortNewses;
+        if (subject.isAuthenticated()) {
+            username = (String) subject.getPrincipal();
+            System.out.println("yes isAuthenticated");
+            shortNewses = newsService.selectAllShortNews();
+        }else {
+            System.out.println("no isAuthenticated");
+            shortNewses = newsService.selectAllPublicShortNews();
+        }
         List<Map<String, String>> recentNews = new ArrayList<>();
         for (int i = 0; i < shortNewses.size() && i < 5; i++) {
             Map<String, String> tMap = new HashMap<>();
@@ -41,6 +53,7 @@ public class BlogController {
         }
         model.addAttribute("newsList", shortNewses);
         model.addAttribute("recentNewsList", recentNews);
+        model.addAttribute("username", username);
         return "homepage";
     }
 
@@ -51,9 +64,15 @@ public class BlogController {
         String description = "good good study, day day up";
         List<Newscategory> categories = newsCategoryService.selectSubNewsCategoryBySuperId(id);
         List<ShortNews> shortNewses = new ArrayList<>();
+        boolean isLogin = SecurityUtils.getSubject().isAuthenticated();
         for (Newscategory category : categories) {
             int sId = category.getTypeid();
-            List<ShortNews> list = newsService.selectAllPublicShortNewsByCategoryId(sId);
+            List<ShortNews> list;
+            if (isLogin) {
+                list = newsService.selectAllShortNewsByCategoryId(sId);
+            }else {
+                list = newsService.selectAllPublicShortNewsByCategoryId(sId);
+            }
             if (list != null && !list.isEmpty()) {
                 shortNewses.addAll(list);
             }
@@ -79,7 +98,13 @@ public class BlogController {
         int id  = newscategory.getTypeid();
         String namealias = newscategory.getNamealias();
         String description = newscategory.getDescription();
-        List<ShortNews> shortNewses = newsService.selectAllPublicShortNewsByCategoryId(id);
+        List<ShortNews> shortNewses;
+        boolean isLogin = SecurityUtils.getSubject().isAuthenticated();
+        if (isLogin) {
+            shortNewses = newsService.selectAllShortNewsByCategoryId(id);
+        }else {
+            shortNewses = newsService.selectAllPublicShortNewsByCategoryId(id);
+        }
         List<Map<String, String>> recentNews = new ArrayList<>();
         for (int i = 0; i < shortNewses.size() && i < 5; i++) {
             Map<String, String> tMap = new HashMap<>();
@@ -101,9 +126,15 @@ public class BlogController {
         String description = "follow your heart";
         List<Newscategory> categories = newsCategoryService.selectSubNewsCategoryBySuperId(id);
         List<ShortNews> shortNewses = new ArrayList<>();
+        boolean isLogin = SecurityUtils.getSubject().isAuthenticated();
         for (Newscategory category : categories) {
             int sId = category.getTypeid();
-            List<ShortNews> list = newsService.selectAllPublicShortNewsByCategoryId(sId);
+            List<ShortNews> list;
+            if (isLogin) {
+                list = newsService.selectAllShortNewsByCategoryId(sId);
+            }else {
+                list = newsService.selectAllPublicShortNewsByCategoryId(sId);
+            }
             if (list != null && !list.isEmpty()) {
                 shortNewses.addAll(list);
             }
@@ -129,7 +160,13 @@ public class BlogController {
         int id  = newscategory.getTypeid();
         String namealias = newscategory.getNamealias();
         String description = newscategory.getDescription();
-        List<ShortNews> shortNewses = newsService.selectAllPublicShortNewsByCategoryId(id);
+        boolean isLogin = SecurityUtils.getSubject().isAuthenticated();
+        List<ShortNews> shortNewses;
+        if (isLogin) {
+            shortNewses = newsService.selectAllShortNewsByCategoryId(id);
+        }else {
+            shortNewses = newsService.selectAllPublicShortNewsByCategoryId(id);
+        }
         List<Map<String, String>> recentNews = new ArrayList<>();
         for (int i = 0; i < shortNewses.size() && i < 5; i++) {
             Map<String, String> tMap = new HashMap<>();

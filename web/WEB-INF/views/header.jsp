@@ -23,6 +23,10 @@
             <a href="<c:url value="/life" />"><span>慢生活</span><span class="en">Life</span></a>
             <a href="<c:url value="/about" />"><span>关于我</span><span class="en">About</span></a>
             <a href="<c:url value="/comment" />"><span>留言版</span><span class="en">Gustbook</span></a>
+            <c:set var="username" scope="session" value="${username}"/>
+            <c:if test="${username != null}">
+                <a href="<c:url value="/user/logout" />"><span>退出</span><span class="en">Logout</span></a>
+            </c:if>
         </nav>
     </header>
 

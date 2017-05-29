@@ -16,7 +16,7 @@ public class UserServiceImpl implements UserService {
     private UserMapper userDao;
 
     public User selectByUserName(String userName) {
-        throw new UnsupportedOperationException();
+        return this.userDao.selectByPrimaryKey(userName);
     }
 
     public void insertUser(User user) {
