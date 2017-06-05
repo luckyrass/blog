@@ -15,14 +15,11 @@
 <html>
 <head>
     <title>首页</title>
-    <link rel="shortcut icon" type="image/png" href="<c:url value="/resources/img/icon1.png" />">
+    <link rel="shortcut icon" type="image/png" href="<c:url value="/resources/img/icon.png" />">
 </head>
 <body>
     <%@include file="header.jsp"%>
     <link href="<c:url value="/resources/css/index.css" />" rel="stylesheet">
-    <shiro:authenticated>
-        用户[<shiro:principal/>]已身份验证通过
-    </shiro:authenticated>
     <div class="banner">
         <section class="box">
             <ul class="texts">
@@ -32,7 +29,7 @@
             </ul>
             <div class="avatar">
                 <shiro:authenticated>
-                    <a href="#"/>
+                    <a href="<c:url value="/news/list"/> "/>
                         <span><shiro:principal/></span>
                     </a>
                 </shiro:authenticated>

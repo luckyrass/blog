@@ -17,7 +17,7 @@
 </head>
 <body>
     <header>
-        <div id="logo"><a href="/"></a></div>
+        <div id="logo"><a href="<c:url value="/index"/> "></a></div>
         <nav class="topnav" id="topnav">
             <a href="<c:url value="/index" />"><span>首页</span><span class="en">Protal</span></a>
             <a href="<c:url value="/study" />"><span>学无止境</span><span class="en">Learn</span></a>

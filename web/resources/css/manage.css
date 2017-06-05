@@ -1,0 +1,35 @@
+/*base*/
+.fl{
+    float: left;
+}
+.fr{
+    float: right;
+}
+.mgLeft30 {
+    margin-left: 30px;
+}
+
+.toolbar, .form-search {
+    margin: 15px 0px;
+}
+.search{
+    margin-left: 16px;
+    width: 300px;
+}
+.search button{
+    height: 34px;
+}
+
+body{
+    width: 1000px;
+    margin: auto;
+}
+.userInfo {
+    vertical-align: top;
+}
+.form-search .form-control{
+    width: 150px;
+}
+a:hover{
+    cursor: pointer;
+}

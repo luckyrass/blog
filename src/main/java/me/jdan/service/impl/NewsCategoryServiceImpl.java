@@ -15,6 +15,7 @@ import java.util.List;
 public class NewsCategoryServiceImpl implements NewsCategoryService {
     @Resource
     private NewscategoryMapper newscategoryDao;
+
     public void insertNewsCategory(Newscategory newscategory) {
         newscategoryDao.insert(newscategory);
     }
@@ -33,6 +34,11 @@ public class NewsCategoryServiceImpl implements NewsCategoryService {
 
     public List<Newscategory> selectAllNewsCategory() {
         return newscategoryDao.selectAllNewsCategory();
+    }
+
+    @Override
+    public List<Newscategory> selectAllSubNewsCategory() {
+        return newscategoryDao.selectAllSubNewsCategory();
     }
 
     public List<Newscategory> selectAllFirstLevelNewsCategory() {

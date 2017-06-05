@@ -13,6 +13,7 @@ public interface NewsCategoryService {
     public void updateNewsCategory(Newscategory newscategory);
     public Newscategory selectNewsCategoryById(int id);
     public List<Newscategory> selectAllNewsCategory();
+    public List<Newscategory> selectAllSubNewsCategory();
     public List<Newscategory> selectAllFirstLevelNewsCategory();
     public List<Newscategory> selectSubNewsCategoryBySuperId(int id);
     public List<Newscategory> selectCategoryByName(String name);

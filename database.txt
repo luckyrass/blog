@@ -76,9 +76,9 @@ PRIMARY KEY (`newsId`)
 INSERT INTO news VALUES('n1', '算法', '算法', 'jdan', '2016-01-01 00:00:00', '', 'this is the first algorithm page', 3, '算法', 0);
 INSERT INTO news VALUES('n2', 'java', 'java', 'jdan', '2016-01-01 00:00:00', '', 'this is the first java page', 4, 'Java', 0);
 INSERT INTO news VALUES('n3', '论文', '论文', 'jdan', '2016-01-01 00:00:00', '', 'this is the first paper page', 5, '论文', 0);
-INSERT INTO news VALUES('n4', '心得笔记', '心得笔记', 'jdan', '2016-01-01 00:00:00', '', 'this is the first experience page', 6, '论文', 0);
+INSERT INTO news VALUES('n4', '心得笔记', '心得笔记', 'jdan', '2016-01-01 00:00:00', '', 'this is the first experience page', 6, '心得笔记', 1);
 
-INSERT INTO news VALUES('n5', '日记', '日记', 'jdan', '2016-01-01 00:00:00', '', 'this is the first diary page', 7, '日记', 0);
+INSERT INTO news VALUES('n5', '日记', '日记', 'jdan', '2016-01-01 00:00:00', '', 'this is the first diary page', 7, '日记', 1);
 INSERT INTO news VALUES('n6', '读书', '读书', 'jdan', '2016-01-01 00:00:00', '', 'this is the first study page', 8, '读书', 0);
 INSERT INTO news VALUES('n7', '程序人生', '程序人生', 'jdan', '2016-01-01 00:00:00', '', 'this is the first programLife page', 9, '程序人生', 0);
 INSERT INTO news VALUES('n8', '经典语录', '经典语录', 'jdan', '2016-01-01 00:00:00', '', 'this is the first quotation page', 10, '经典语录', 0);

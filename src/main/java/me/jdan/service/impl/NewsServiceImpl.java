@@ -1,6 +1,7 @@
 package me.jdan.service.impl;
 
 import me.jdan.dao.NewsMapper;
+import me.jdan.po.MicroNews;
 import me.jdan.po.News;
 import me.jdan.po.ShortNews;
 import me.jdan.service.NewsService;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by jdan on 2016/10/31.
@@ -16,6 +18,7 @@ import java.util.List;
 public class NewsServiceImpl implements NewsService {
     @Resource
     private NewsMapper newsDao;
+
     public void insertNews(News news) {
         newsDao.insert(news);
     }
@@ -52,5 +55,31 @@ public class NewsServiceImpl implements NewsService {
 
     public int selectNewsCount() {
         return 0;
+    }
+
+
+    @Override
+    public List<MicroNews> selectAllMicroNews() {
+        return newsDao.selectAllMicroNews();
+    }
+
+    @Override
+    public List<MicroNews> selectAllMicroNewsByPrivilege(int privilege) {
+        return newsDao.selectAllMicroNewsByPrivilege(privilege);
+    }
+
+/*    @Override
+    public List<MicroNews> selectAllMicroNewsByCategoryId(int id) {
+        return newsDao.selectAllMicroNewsByCategoryId(id);
+    }*/
+
+    @Override
+    public List<MicroNews> selectAllMicroNewsByCategoryId(List<Integer> list) {
+        return newsDao.selectAllMicroNewsByCategoryId(list);
+    }
+
+    @Override
+    public List<MicroNews> selectAllMicroNewsByCategoryIdAndPrivilege(Map<String, Object> map) {
+        return newsDao.selectAllMicroNewsByCategoryIdAndPrivilege(map);
     }
 }

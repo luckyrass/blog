@@ -463,4 +463,41 @@
   <select id="selectAllPublicShortNewsByCategoryId" parameterType="java.lang.Integer" resultMap="shortNewsResultMap">
     select newsId, title, authorName, releaseDate, newsIntro, categoryName FROM news WHERE privilege = 0 and newsType = #{id};
   </select>
+
+
+  <!--query Micro news-->
+  <resultMap id="MicroNewsResultMap" type="me.jdan.po.MicroNews">
+    <id property="newsid" column="newsId" jdbcType="VARCHAR"/>
+    <result property="title" column="title" jdbcType="VARCHAR"/>
+    <result property="releasedate" column="releaseDate" jdbcType="TIMESTAMP"/>
+    <result property="privilege" column="privilege" jdbcType="INTEGER"/>
+  </resultMap>
+
+  <select id="selectAllMicroNews" resultMap="MicroNewsResultMap">
+    select newsId, title, releaseDate, privilege FROM news;
+  </select>
+
+  <select id="selectAllMicroNewsByPrivilege" parameterType="java.lang.Integer" resultMap="MicroNewsResultMap">
+    select newsId, title, releaseDate, privilege FROM news WHERE privilege = #{id};
+  </select>
+
+  <!--<select id="selectAllMicroNewsByCategoryId" parameterType="java.util.List" resultMap="MicroNewsResultMap">-->
+    <!--select newsId, title, releaseDate, privilege FROM news WHERE newsType = #{id};-->
+  <!--</select>-->
+  <select id="selectAllMicroNewsByCategoryId" parameterType="java.util.List" resultMap="MicroNewsResultMap">
+    select newsId, title, releaseDate, privilege FROM news WHERE newsType in
+      <foreach item="item" index="index" collection="list"
+               open="(" separator="," close=")">
+        #{item}
+      </foreach>
+  </select>
+
+  <select id="selectAllMicroNewsByCategoryIdAndPrivilege" parameterType="java.util.Map" resultMap="MicroNewsResultMap">
+    select newsId, title, releaseDate, privilege FROM news WHERE privilege = #{privilege} AND newsType IN
+    <foreach item="item" index="index" collection="newsType"
+             open="(" separator="," close=")">
+      #{item}
+    </foreach>
+  </select>
+
 </mapper>

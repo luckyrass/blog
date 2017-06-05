@@ -1,6 +1,9 @@
 package me.jdan.dao;
 
 import java.util.List;
+import java.util.Map;
+
+import me.jdan.po.MicroNews;
 import me.jdan.po.News;
 import me.jdan.po.NewsExample;
 import me.jdan.po.ShortNews;
@@ -129,4 +132,13 @@ public interface NewsMapper {
     List<ShortNews> selectAllShortNewsByCategoryId(int id);
 
     List<ShortNews> selectAllPublicShortNewsByCategoryId(int id);
+
+    List<MicroNews> selectAllMicroNews();
+
+    List<MicroNews> selectAllMicroNewsByPrivilege(int privilege);
+
+//    List<MicroNews> selectAllMicroNewsByCategoryId(int id);
+    List<MicroNews> selectAllMicroNewsByCategoryId(List<Integer> list);
+
+    List<MicroNews> selectAllMicroNewsByCategoryIdAndPrivilege(Map<String, Object> map);
 }

@@ -98,6 +98,7 @@ public interface NewscategoryMapper {
     * write by author
     * */
     List<Newscategory> selectAllNewsCategory();
+    List<Newscategory> selectAllSubNewsCategory();
     List<Newscategory> selectAllFirstLevelNewsCategory();
     List<Newscategory> selectSubNewsCategoryBySuperId(int id);
     List<Newscategory> selectCategoryByName(String name);
